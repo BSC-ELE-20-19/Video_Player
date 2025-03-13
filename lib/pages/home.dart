@@ -90,15 +90,28 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(Icons.search),
-                    iconSize: 38,
-                  ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(Icons.search),
-                    iconSize: 38,
+                  Expanded(
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: <Widget>[
+                        IconButton(
+                          onPressed: () {},
+                          icon: Icon(Icons.search),
+                          iconSize: 38,
+                        ),
+                        IconButton(
+                          onPressed: () {},
+                          icon: Image.asset(
+                            'icons/view-list.png',
+                            width: 38,
+                            height: 38, // Your image asset path
+                            fit:
+                                BoxFit
+                                    .cover, // BoxFit options like cover or contain
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),

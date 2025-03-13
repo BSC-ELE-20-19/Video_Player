@@ -30,6 +30,12 @@ class RecentlyPlayed extends StatelessWidget {
                     color: const Color(0xFFf7f7f7),
                     height: 160,
                     width: 200,
+                    child: Image.asset(
+                      'images/download.jpg',
+                      width: 160,
+                      height: 200, // Your image asset path
+                      fit: BoxFit.cover, // BoxFit options like cover or contain
+                    ),
                   ),
                   Padding(padding: EdgeInsets.only(top: 8)),
                   Text("Mlimi Digital Acades", style: TextStyle(fontSize: 18)),
