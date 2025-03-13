@@ -3,21 +3,8 @@ import 'package:video_player/components/videos.dart';
 import 'package:video_player/components/folders.dart';
 import 'package:video_player/components/recently.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
-
-  @override
-  HomeScreenState createState() => HomeScreenState();
-}
-
-class HomeScreenState extends State<HomeScreen> {
-  bool isVideoSelected = true;
-
-  void toggleSelection(bool isVideo) {
-    setState(() {
-      isVideoSelected = isVideo;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +12,12 @@ class HomeScreenState extends State<HomeScreen> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
+        /**leading: Image.asset(
+          'images/logo.png',
+          width: 45,
+          height: 48,
+          fit: BoxFit.cover,
+        ),**/
         actions: <Widget>[
           IconButton(onPressed: () {}, icon: Icon(Icons.search), iconSize: 38),
           IconButton(
@@ -50,7 +43,7 @@ class HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               RecentlyPlayed(number: 5),
-              SizedBox(height: 38),
+              Padding(padding: EdgeInsets.only(top: 38.0)),
               Text(
                 "Browse",
                 style: TextStyle(
@@ -60,54 +53,40 @@ class HomeScreenState extends State<HomeScreen> {
                   fontSize: 32,
                 ),
               ),
-              SizedBox(height: 12),
-
+              Padding(padding: EdgeInsets.only(top: 12.0)),
               Row(
                 children: <Widget>[
                   SizedBox(
                     width: 185,
                     height: 60,
                     child: RawMaterialButton(
-                      onPressed:
-                          () => toggleSelection(true), // Switch to Videos
-                      fillColor:
-                          isVideoSelected
-                              ? Color(0xFF9BCC39)
-                              : Color(0xFFF7F7F7),
+                      onPressed: () {},
+                      fillColor: Color(0xFF9BCC39),
                       elevation: 0,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(4),
                       ),
                       child: Text(
                         'VIDEOS',
-                        style: TextStyle(
-                          color: isVideoSelected ? Colors.white : Colors.black,
-                          fontSize: 18,
-                        ),
+                        style: TextStyle(color: Colors.white, fontSize: 18),
                       ),
                     ),
                   ),
-                  SizedBox(width: 8),
+                  Padding(padding: EdgeInsets.all(8)),
                   SizedBox(
                     width: 185,
                     height: 60,
                     child: RawMaterialButton(
-                      onPressed:
-                          () => toggleSelection(false), // Switch to Folders
-                      fillColor:
-                          !isVideoSelected
-                              ? Color(0xFF9BCC39)
-                              : Color(0xFFF7F7F7),
+                      onPressed: () {},
+                      fillColor: Color(0xFFF7f7f7),
                       elevation: 0,
+
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(4),
                       ),
                       child: Text(
                         'FOLDERS',
-                        style: TextStyle(
-                          color: !isVideoSelected ? Colors.white : Colors.black,
-                          fontSize: 18,
-                        ),
+                        style: TextStyle(color: Colors.black, fontSize: 18),
                       ),
                     ),
                   ),
@@ -138,26 +117,42 @@ class HomeScreenState extends State<HomeScreen> {
                   ),
                 ],
               ),
-
-              SizedBox(height: 20),
-
+              //Video(text: "03 February, 2025", number: 2),
+              //Video(text: "09 February, 2025", number: 3),
+              //Video(text: "17 February, 2025", number: 4),
+              //Video(text: "01 May, 2025", number: 5),
               Expanded(
                 child: SingleChildScrollView(
-                  child:
-                      isVideoSelected
-                          ? Video(
-                            text: "09 February, 2025",
-                            number: 7,
-                          ) // Show Videos component
-                          : Folder(
-                            folderName: "Video",
-                            folderCount: 17,
-                          ), // Show Folders component
+                  child: Folder(folderName: "Video", folderCount: 17),
                 ),
               ),
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Text headTitle() {
+    return Text(
+      "Browse",
+      style: TextStyle(
+        fontWeight: FontWeight.bold,
+        fontFamily: 'Roboto',
+        color: Color(0xFF9BCC39),
+        fontSize: 32,
+      ),
+    );
+  }
+
+  SingleChildScrollView recentMedia() {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children: <Widget>[
+          Container(color: Colors.yellow, height: 160, width: 200),
+          Padding(padding: EdgeInsets.all(8.0)),
+        ],
       ),
     );
   }
