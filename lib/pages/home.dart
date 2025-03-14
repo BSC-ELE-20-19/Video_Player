@@ -111,7 +111,7 @@ class HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                   ),
-                  Expanded(
+                  /*Expanded(
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: <Widget>[
@@ -135,7 +135,7 @@ class HomeScreenState extends State<HomeScreen> {
                         ),
                       ],
                     ),
-                  ),
+                  ),*/
                 ],
               ),
 
