@@ -20,11 +20,15 @@ class PlaylistState extends State<Playlist> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //backgroundColor: const Color(0xFF0a080b),
       backgroundColor: Colors.white,
+
       appBar: AppBar(
         backgroundColor: Colors.white,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
           icon: Image.asset('icons/previous.png', height: 28, width: 28),
         ),
 
@@ -32,7 +36,7 @@ class PlaylistState extends State<Playlist> {
           IconButton(onPressed: () {}, icon: Icon(Icons.search), iconSize: 38),
           IconButton(
             onPressed: () {},
-            icon: Icon(Icons.more_vert),
+            icon: Image.asset('icons/moreg.png'),
             iconSize: 38,
           ),
         ],
@@ -56,7 +60,7 @@ class PlaylistState extends State<Playlist> {
                 child: SingleChildScrollView(
                   child: Video(
                     text: "09 February, 2025",
-                    number: 7,
+                    number: 17,
                   ), // Show Videos component
                 ),
               ),

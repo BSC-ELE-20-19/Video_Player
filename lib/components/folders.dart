@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:video_player/pages/playlist.dart';
 
 class Folder extends StatelessWidget {
   final String folderName;
@@ -22,7 +23,12 @@ class Folder extends StatelessWidget {
             height: 100,
             width: double.infinity,
             child: RawMaterialButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Playlist()),
+                );
+              },
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[

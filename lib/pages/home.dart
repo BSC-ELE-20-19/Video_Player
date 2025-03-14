@@ -22,14 +22,16 @@ class HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      //backgroundColor: Colors.white,
+      //backgroundColor: const Color(0xFF0a080b),
+      backgroundColor: const Color(0xFF0f0f0f),
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0XFF0f0f0f),
         actions: <Widget>[
           IconButton(onPressed: () {}, icon: Icon(Icons.search), iconSize: 38),
           IconButton(
             onPressed: () {},
-            icon: Icon(Icons.more_vert),
+            icon: Image.asset('icons/moreg.png'),
             iconSize: 38,
           ),
         ],
@@ -73,7 +75,9 @@ class HomeScreenState extends State<HomeScreen> {
                       fillColor:
                           isVideoSelected
                               ? Color(0xFF9BCC39)
-                              : Color(0xFFF7F7F7),
+                              //: Color(0xFFF7F7F7),
+                              //: Color(0xFF1b1b1b),
+                              : Color(0xFF444444),
                       elevation: 0,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(4),
@@ -97,7 +101,9 @@ class HomeScreenState extends State<HomeScreen> {
                       fillColor:
                           !isVideoSelected
                               ? Color(0xFF9BCC39)
-                              : Color(0xFFF7F7F7),
+                              //: Color(0xFFF7F7F7),
+                              : Color(0xFF616161),
+
                       elevation: 0,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(4),

@@ -40,8 +40,12 @@ class Video extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        "Mlimi Digital Acades farmer registration will loren ipsum for summer",
-                        style: TextStyle(fontSize: 18),
+                        "Mlimi Digital Acades farmer registration will loren",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w700,
+                          //olor: const Color(0xDBFFFFFF),
+                        ),
                       ),
                       Padding(padding: EdgeInsets.only(top: 8)),
                       Text("Duration: 44:36", style: TextStyle(fontSize: 16)),
