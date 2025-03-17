@@ -48,7 +48,7 @@ class Folder extends StatelessWidget {
                         width: 2.0, // Border width
                       ),
                       borderRadius: BorderRadius.circular(
-                        16.0,
+                        4.0,
                       ), // Rounded corners
                     ),
                     alignment:
@@ -63,15 +63,14 @@ class Folder extends StatelessWidget {
                   Padding(padding: EdgeInsets.only(right: 16)),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text(
                         "Mlimi Digital Acades",
                         style: GoogleFonts.inter(
                           textStyle: TextStyle(
-                            color: const Color.fromARGB(255, 138, 138, 138),
+                            color: const Color.fromARGB(255, 255, 255, 255),
                             fontWeight: FontWeight.w800,
-                            fontSize: 24,
+                            fontSize: 18,
                           ),
                         ),
                       ),

@@ -19,7 +19,6 @@ class RecentlyPlayed extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(right: 10, top: 16),
           child: SizedBox(
-            height: 208,
             width: 200,
             child: RawMaterialButton(
               onPressed: () {},
@@ -27,7 +26,7 @@ class RecentlyPlayed extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Container(
-                    height: 160,
+                    height: 100,
                     width: 200,
                     decoration: BoxDecoration(
                       color: const Color(0xFFf7f7f7),
@@ -37,12 +36,12 @@ class RecentlyPlayed extends StatelessWidget {
                         width: 2.0, // Border width
                       ),
                       borderRadius: BorderRadius.circular(
-                        16.0,
+                        8.0,
                       ), // Rounded corners
                     ),
                     child: Image.asset(
                       'images/download.jpg',
-                      width: 160,
+                      width: 150,
                       height: 200, // Your image asset path
                       fit: BoxFit.cover, // BoxFit options like cover or contain
                     ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:my_video_player/components/videos.dart';
 import 'package:my_video_player/components/folders.dart';
 import 'package:my_video_player/components/recently.dart';
@@ -23,24 +24,25 @@ class HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //backgroundColor: Colors.white,
+      backgroundColor: Colors.white,
       //backgroundColor: const Color(0xFF0a080b),
-      backgroundColor: const Color(0xFF0f0f0f),
+      //backgroundColor: const Color(0xFF0f0f0f),
       appBar: AppBar(
-        backgroundColor: Color(0XFF0f0f0f),
-        //backgroundColor: Colors.white,
+        //backgroundColor: Color(0XFF0f0f0f),
+        backgroundColor: Colors.white,
         actions: <Widget>[
           IconButton(onPressed: () {}, icon: Icon(Icons.search), iconSize: 38),
-          IconButton(
+          /*IconButton(
             onPressed: () {},
             icon: Image.asset('icons/moreg.png'),
-            iconSize: 38,
-          ),
+            iconSize: 24,
+          ),*/
         ],
       ),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.all(24.0),
+
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
@@ -50,7 +52,7 @@ class HomeScreenState extends State<HomeScreen> {
                   textStyle: TextStyle(
                     color: const Color(0xFF9BCC39),
                     fontWeight: FontWeight.w900,
-                    fontSize: 38,
+                    fontSize: 28,
                   ),
                 ),
               ),
@@ -61,7 +63,7 @@ class HomeScreenState extends State<HomeScreen> {
                   textStyle: TextStyle(
                     color: const Color(0xFF9BCC39),
                     fontWeight: FontWeight.w900,
-                    fontSize: 38,
+                    fontSize: 28,
                   ),
                 ),
               ),
@@ -70,8 +72,8 @@ class HomeScreenState extends State<HomeScreen> {
               Row(
                 children: <Widget>[
                   SizedBox(
-                    width: 185,
-                    height: 60,
+                    width: 160,
+                    height: 48,
                     child: RawMaterialButton(
                       onPressed:
                           () => toggleSelection(true), // Switch to Videos
@@ -96,8 +98,8 @@ class HomeScreenState extends State<HomeScreen> {
                   ),
                   SizedBox(width: 8),
                   SizedBox(
-                    width: 185,
-                    height: 60,
+                    width: 160,
+                    height: 48,
                     child: RawMaterialButton(
                       onPressed:
                           () => toggleSelection(false), // Switch to Folders

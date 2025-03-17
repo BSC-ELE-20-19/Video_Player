@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flick_video_player/flick_video_player.dart';
 import 'package:video_player/video_player.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -6,34 +7,23 @@ class VideoApp extends StatefulWidget {
   const VideoApp({super.key});
 
   @override
-  VideoAppState createState() => VideoAppState();
+  SamplePlayerState createState() => SamplePlayerState();
 }
 
-class VideoAppState extends State<VideoApp> {
-  late VideoPlayerController _controller;
-  Duration _currentPosition = Duration.zero;
-  bool _isSeeking = false; // Track if user is dragging
-
+class SamplePlayerState extends State<VideoApp> {
+  late FlickManager flickManager;
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.asset("videos/Bob.mp4")
-      ..initialize().then((_) {
-        setState(() {});
-      });
-
-    _controller.addListener(() {
-      if (!_isSeeking) {
-        setState(() {
-          _currentPosition = _controller.value.position;
-        });
-      }
-    });
+    flickManager = FlickManager(
+      videoPlayerController: VideoPlayerController.asset("videos/Bob.mp4"),
+    );
   }
 
-  String _formatDuration(Duration duration) {
-    String twoDigits(int n) => n.toString().padLeft(2, "0");
-    return "${twoDigits(duration.inMinutes)}:${twoDigits(duration.inSeconds.remainder(60))}";
+  @override
+  void dispose() {
+    flickManager.dispose();
+    super.dispose();
   }
 
   @override
@@ -67,88 +57,19 @@ class VideoAppState extends State<VideoApp> {
           ),
         ],
       ),
-      body: OrientationBuilder(
-        builder: (context, orientation) {
-          return LayoutBuilder(
-            builder: (context, constraints) {
-              double videoWidth = constraints.maxWidth;
-              double videoHeight =
-                  constraints.maxHeight * 0.6; // 60% of screen height
-
-              return Center(
-                child:
-                    _controller.value.isInitialized
-                        ? Padding(
-                          padding: EdgeInsets.all(24.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              SizedBox(
-                                width: videoWidth,
-                                height: videoHeight,
-                                child: VideoPlayer(_controller),
-                              ),
-                              const SizedBox(height: 10),
-                              Row(
-                                children: <Widget>[
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: <Widget>[
-                                      Text(_formatDuration(_currentPosition)),
-                                    ],
-                                  ),
-                                  Column(
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    children: <Widget>[
-                                      Text(
-                                        _formatDuration(
-                                          _controller.value.duration,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              Slider(
-                                min: 0,
-                                max:
-                                    _controller.value.duration.inSeconds
-                                        .toDouble(),
-                                value: _currentPosition.inSeconds.toDouble(),
-                                onChangeStart: (_) {
-                                  _isSeeking = true; // Start dragging
-                                },
-                                onChanged: (value) {
-                                  setState(() {
-                                    _currentPosition = Duration(
-                                      seconds: value.toInt(),
-                                    );
-                                  });
-                                },
-                                onChangeEnd: (value) {
-                                  _isSeeking = false; // Stop dragging
-                                  _controller.seekTo(
-                                    Duration(seconds: value.toInt()),
-                                  );
-                                },
-                              ),
-                            ],
-                          ),
-                        )
-                        : const CircularProgressIndicator(),
-              );
-            },
-          );
-        },
+      body: Center(
+        child: FlickVideoPlayer(
+          flickManager: flickManager,
+          flickVideoWithControls: FlickVideoWithControls(
+            videoFit: BoxFit.contain,
+            controls: FlickPortraitControls(),
+          ),
+          flickVideoWithControlsFullscreen: FlickVideoWithControls(
+            videoFit: BoxFit.contain,
+            controls: FlickLandscapeControls(),
+          ),
+        ),
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
   }
 }

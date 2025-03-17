@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_video_player/pages/home.dart';
+import 'package:my_video_player/pages/videoapp.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
           seedColor: const Color.fromARGB(255, 100, 187, 115),
         ),
       ),
-      home: HomeScreen(),
+      home: VideoApp(),
     );
   }
 }

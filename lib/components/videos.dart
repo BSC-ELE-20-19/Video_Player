@@ -17,7 +17,7 @@ class Video extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(top: 18),
           child: SizedBox(
-            height: 100,
+            height: 80,
             width: double.infinity,
             child: RawMaterialButton(
               onPressed: () {
@@ -29,33 +29,29 @@ class Video extends StatelessWidget {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Container(
-                    height: 100,
-                    width: 150,
-                    alignment:
-                        Alignment.center, // Align the image at the center
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(4.0),
                     child: Image.asset(
                       'images/download.jpg',
-                      width: 150,
-                      height: 100, // Your image asset path
+                      width: 100,
+                      height: 80, // Your image asset path
                       fit: BoxFit.cover, // BoxFit options like cover or contain
                     ),
                   ),
                   Padding(padding: EdgeInsets.only(right: 16)),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text(
                         "Mlimi Digital Acades farmer registration will loren",
                         style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 14,
                           fontWeight: FontWeight.w700,
                           //olor: const Color(0xDBFFFFFF),
                         ),
                       ),
                       Padding(padding: EdgeInsets.only(top: 8)),
-                      Text("Duration: 44:36", style: TextStyle(fontSize: 16)),
+                      Text("Duration: 44:36", style: TextStyle(fontSize: 12)),
                     ],
                   ),
                 ],
@@ -71,7 +67,7 @@ class Video extends StatelessWidget {
         Padding(padding: EdgeInsets.only(top: 34)),
         Text(
           "120 Videos Found",
-          style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w500),
+          style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w500),
         ),
         SingleChildScrollView(
           scrollDirection: Axis.vertical,
