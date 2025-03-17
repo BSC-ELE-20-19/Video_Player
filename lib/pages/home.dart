@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:video_player/components/videos.dart';
-import 'package:video_player/components/folders.dart';
-import 'package:video_player/components/recently.dart';
+import 'package:my_video_player/components/videos.dart';
+import 'package:my_video_player/components/folders.dart';
+import 'package:my_video_player/components/recently.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -27,6 +28,7 @@ class HomeScreenState extends State<HomeScreen> {
       backgroundColor: const Color(0xFF0f0f0f),
       appBar: AppBar(
         backgroundColor: Color(0XFF0f0f0f),
+        //backgroundColor: Colors.white,
         actions: <Widget>[
           IconButton(onPressed: () {}, icon: Icon(Icons.search), iconSize: 38),
           IconButton(
@@ -44,22 +46,23 @@ class HomeScreenState extends State<HomeScreen> {
             children: <Widget>[
               Text(
                 "Recent Media",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'Roboto',
-                  color: Color(0xFF9BCC39),
-                  fontSize: 32,
+                style: GoogleFonts.inter(
+                  textStyle: TextStyle(
+                    color: const Color(0xFF9BCC39),
+                    fontWeight: FontWeight.w900,
+                    fontSize: 38,
+                  ),
                 ),
               ),
-              RecentlyPlayed(number: 5),
-              SizedBox(height: 38),
+              RecentlyPlayed(number: 3),
               Text(
                 "Browse",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'Roboto',
-                  color: Color(0xFF9BCC39),
-                  fontSize: 32,
+                style: GoogleFonts.inter(
+                  textStyle: TextStyle(
+                    color: const Color(0xFF9BCC39),
+                    fontWeight: FontWeight.w900,
+                    fontSize: 38,
+                  ),
                 ),
               ),
               SizedBox(height: 12),

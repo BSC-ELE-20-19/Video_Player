@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 //import 'package:video_player/components/videos.dart';
-import 'package:video_player/components/folders.dart';
-import 'package:video_player/components/recently.dart';
+import 'package:my_video_player/components/folders.dart';
+import 'package:my_video_player/components/recently.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:video_player/pages/playlist.dart';
+import 'package:my_video_player/pages/playlist.dart';
+import 'package:my_video_player/pages/videoapp.dart';
+
+import 'package:google_fonts/google_fonts.dart';
 
 class Folder extends StatelessWidget {
   final String folderName;
@@ -18,7 +21,7 @@ class Folder extends StatelessWidget {
     for (int i = 0; i < folderCount; i++) {
       containerList.add(
         Padding(
-          padding: EdgeInsets.only(top: 18),
+          padding: EdgeInsets.only(top: 12),
           child: SizedBox(
             height: 100,
             width: double.infinity,
@@ -26,7 +29,7 @@ class Folder extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Playlist()),
+                  MaterialPageRoute(builder: (context) => VideoApp()),
                 );
               },
               child: Row(
@@ -36,14 +39,16 @@ class Folder extends StatelessWidget {
                     height: 100,
                     width: 150,
                     decoration: BoxDecoration(
-                      color: Color(0xFFF7f7f7),
+                      color: Color(0xFF444444),
                       // Background color
                       border: Border.all(
-                        color: Color.fromRGBO(0, 0, 0, 0.20), // Border color
+                        //color: Color.fromRGBO(0, 0, 0, 0.20), // Border color
+                        color: Color(0xFF444444),
+
                         width: 2.0, // Border width
                       ),
                       borderRadius: BorderRadius.circular(
-                        4.0,
+                        16.0,
                       ), // Rounded corners
                     ),
                     alignment:
@@ -62,10 +67,19 @@ class Folder extends StatelessWidget {
                     children: <Widget>[
                       Text(
                         "Mlimi Digital Acades",
-                        style: TextStyle(fontSize: 18),
+                        style: GoogleFonts.inter(
+                          textStyle: TextStyle(
+                            color: const Color.fromARGB(255, 138, 138, 138),
+                            fontWeight: FontWeight.w800,
+                            fontSize: 24,
+                          ),
+                        ),
                       ),
                       Padding(padding: EdgeInsets.only(top: 8)),
-                      Text("7 Videos", style: TextStyle(fontSize: 18)),
+                      Text(
+                        "7 Videos",
+                        style: TextStyle(fontSize: 18, color: Colors.white),
+                      ),
                     ],
                   ),
                 ],
@@ -81,7 +95,11 @@ class Folder extends StatelessWidget {
         Padding(padding: EdgeInsets.only(top: 34)),
         Text(
           "17 Folders Found",
-          style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w500),
+          style: TextStyle(
+            fontSize: 18.0,
+            fontWeight: FontWeight.w500,
+            color: Colors.white,
+          ),
         ),
         SingleChildScrollView(
           scrollDirection: Axis.vertical,

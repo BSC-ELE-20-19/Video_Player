@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:video_player/pages/home.dart';
-import 'package:video_player/pages/playlist.dart';
+import 'package:my_video_player/pages/home.dart';
 
 void main() {
   runApp(const MyApp());

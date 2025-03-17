@@ -27,9 +27,19 @@ class RecentlyPlayed extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Container(
-                    color: const Color(0xFFf7f7f7),
                     height: 160,
                     width: 200,
+                    decoration: BoxDecoration(
+                      color: const Color(0xFFf7f7f7),
+                      border: Border.all(
+                        //color: Color.fromRGBO(0, 0, 0, 0.20), // Border color
+                        color: Color(0xFF444444),
+                        width: 2.0, // Border width
+                      ),
+                      borderRadius: BorderRadius.circular(
+                        16.0,
+                      ), // Rounded corners
+                    ),
                     child: Image.asset(
                       'images/download.jpg',
                       width: 160,

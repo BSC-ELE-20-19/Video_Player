@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:video_player/components/videos.dart';
+import 'package:my_video_player/components/videos.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Playlist extends StatefulWidget {
   const Playlist({super.key});
@@ -21,10 +22,12 @@ class PlaylistState extends State<Playlist> {
   Widget build(BuildContext context) {
     return Scaffold(
       //backgroundColor: const Color(0xFF0a080b),
-      backgroundColor: Colors.white,
-
+      //backgroundColor: const Color(0xFF1b1e21),
+      //backgroundColor: Colors.white,
+      backgroundColor: const Color(0xFF0f0f0f),
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        //backgroundColor: Colors.white,
+        backgroundColor: const Color(0xFF0f0f0f),
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -49,11 +52,12 @@ class PlaylistState extends State<Playlist> {
             children: <Widget>[
               Text(
                 "Folder name one",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'Roboto',
-                  color: Color(0xFF9BCC39),
-                  fontSize: 32,
+                style: GoogleFonts.inter(
+                  textStyle: TextStyle(
+                    color: const Color.fromARGB(255, 138, 138, 138),
+                    fontWeight: FontWeight.w900,
+                    fontSize: 34,
+                  ),
                 ),
               ),
               Expanded(
